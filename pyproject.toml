@@ -7,6 +7,8 @@ name = "plvr-primitives"
 version = "0.1.0"
 description = "Mine reusable reasoning primitives from your own agent traces, and generate a prompt for each."
 readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
 requires-python = ">=3.10"
 dependencies = [
     "numpy>=1.24",

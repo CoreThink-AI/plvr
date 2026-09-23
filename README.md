@@ -7,9 +7,7 @@ Bring a corpus of traces. You get back a set of candidate operations that actual
 data, evidence for whether each one is separating anything real, and a prompt per operation that a
 small model can run.
 
-**It does not generate a program.** It gives you the pieces and stops. Deciding which primitives
-compose, in what order, under what control flow, is program synthesis — that is the interesting
-part and it is yours to write. See [Scope](#scope).
+**Program Synthesis will be available soon** See [Scope](#scope).
 
 ---
 
@@ -195,4 +193,4 @@ traces.jsonl
 
 ## License
 
-Not yet chosen — add one before making the repository public.
+MIT — see [LICENSE](LICENSE).
