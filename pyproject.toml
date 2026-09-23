@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "plvr-primitives"
+version = "0.1.0"
+description = "Mine reusable reasoning primitives from your own agent traces, and generate a prompt for each."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "scikit-learn>=1.4",   # HDBSCAN, c-TF-IDF, PCA fallback
+]
+
+[project.optional-dependencies]
+# The real embedding model. Without it the pipeline falls back to char n-gram TF-IDF + SVD,
+# which runs offline but clusters noticeably worse.
+embed = ["sentence-transformers>=2.2"]
+# Density clustering works far better in a UMAP projection than in a linear one.
+umap = ["umap-learn>=0.5"]
+# The `verbs` and `frames` representations.
+frames = ["spacy>=3.7"]
+all = ["sentence-transformers>=2.2", "umap-learn>=0.5", "spacy>=3.7"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+plvr-primitives = "plvr_primitives.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
